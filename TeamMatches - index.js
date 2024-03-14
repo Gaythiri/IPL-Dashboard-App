@@ -1,4 +1,3 @@
-// Write your code here
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 
@@ -7,7 +6,7 @@ import MatchCard from '../MatchCard'
 
 import './index.css'
 
-const teamsMatchesApiUrl = 'https://apis.ccbp.in/ipl'
+const teamMatchesApiUrl = 'https://apis.ccbp.in/ipl/'
 
 class TeamMatches extends Component {
   state = {
@@ -15,7 +14,7 @@ class TeamMatches extends Component {
     teamMatchesData: {},
   }
 
-  componentDisMount() {
+  componentDidMount() {
     this.getTeamMatches()
   }
 
@@ -38,7 +37,7 @@ class TeamMatches extends Component {
     const {params} = match
     const {id} = params
 
-    const response = await fetch(`${teamsMatchesApiUrl}${id}`)
+    const response = await fetch(`${teamMatchesApiUrl}${id}`)
     const fetchedData = await response.json()
     const formattedData = {
       teamBannerURL: fetchedData.team_banner_url,
@@ -48,10 +47,7 @@ class TeamMatches extends Component {
       ),
     }
 
-    this.setState({
-      teamMatchesData: formattedData,
-      isLoading: false,
-    })
+    this.setState({teamMatchesData: formattedData, isLoading: false})
   }
 
   renderRecentMatchesList = () => {
@@ -81,8 +77,8 @@ class TeamMatches extends Component {
   }
 
   renderLoader = () => (
-    <div testid="loader" className="loader-container">
-      <Loader type="Oval" color="#fffff" height={50} />
+    <div data-testid="loader" className="loader-container">
+      <Loader type="Oval" color="#ffffff" height={50} />
     </div>
   )
 
