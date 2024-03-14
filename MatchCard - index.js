@@ -1,9 +1,8 @@
-// Write your code here
 import './index.css'
 
 const MatchCard = props => {
   const {matchDetails} = props
-  const {competingTeam, competingTeamLogo, matchStatus, result} = matchDetails
+  const {competingTeamLogo, competingTeam, matchStatus, result} = matchDetails
   const getMatchStatusClassName = status =>
     status === 'Won' ? 'match-won' : 'match-lost'
   const matchStatusClassName = `match-status ${getMatchStatusClassName(
@@ -14,8 +13,8 @@ const MatchCard = props => {
     <li className="match-item">
       <img
         src={competingTeamLogo}
-        alt={`competing team ${competingTeam}`}
         className="competing-team-logo"
+        alt={`competing team ${competingTeam}`}
       />
       <p className="competing-team-name">{competingTeam}</p>
       <p className="result">{result}</p>
