@@ -1,4 +1,3 @@
-// Write your code here
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 
@@ -14,7 +13,7 @@ class Home extends Component {
     teamsData: [],
   }
 
-  componentDisMount() {
+  componentDidMount() {
     this.getTeams()
   }
 
@@ -46,8 +45,8 @@ class Home extends Component {
   }
 
   renderLoader = () => (
-    <div testid="loader" className="loader-container">
-      <Loader type="Oval" color="#fffff" height={50} />
+    <div data-testid="loader" className="loader-container">
+      <Loader type="Oval" color="#ffffff" height={50} />
     </div>
   )
 
@@ -55,7 +54,7 @@ class Home extends Component {
     const {isLoading} = this.state
 
     return (
-      <div className="homew-route-container">
+      <div className="home-route-container">
         <div className="teams-list-container">
           <div className="ipl-dashboard-heading-container">
             <img
